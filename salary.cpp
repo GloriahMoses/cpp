@@ -12,6 +12,7 @@ int main()
 	char job_category;
 	cout << "Enter your job group category:";
 	cin >> job_category;
+	job_category = tolower(job_category);
 
 
 	if (job_category == 'a') {
