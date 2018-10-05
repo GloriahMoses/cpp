@@ -53,6 +53,6 @@ int main()
 		gross_salary = basic_salary + bonus;
 		cout << "Your Gross salary remains the same for this job category: " << gross_salary;
 	}
-	system("Pause");
+	system("pause");
 	return 0;
 }
