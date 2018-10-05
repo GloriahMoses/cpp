@@ -9,12 +9,12 @@ int main()
 {
 	float basic_salary, percentage_bonus, bonus, gross_salary;
 
-	char str;
+	char job_category;
 	cout << "Enter your job group category:";
-	cin >> str;
+	cin >> job_category;
 
 
-	if (str == 'a') {
+	if (job_category == 'a') {
 		basic_salary = 10000;
 		percentage_bonus = 0.12;
 		bonus = basic_salary * percentage_bonus;
@@ -22,7 +22,7 @@ int main()
 		cout << "Your Gross salary is: " << gross_salary;
 	}
 	
-	else if (str == 'b') {
+	else if (job_category == 'b') {
 		basic_salary = 15000;
 		percentage_bonus = 0.14;
 		bonus = basic_salary * percentage_bonus;
@@ -30,7 +30,7 @@ int main()
 		cout << "Your Gross salary is: " << gross_salary;
 	}
 	
-	else if (str == 'c') {
+	else if (job_category == 'c') {
 		basic_salary = 20000;
 		percentage_bonus = 0.16;
 		bonus = basic_salary * percentage_bonus;
@@ -38,7 +38,7 @@ int main()
 		cout << "Your Gross salary is: " << gross_salary;
 	}
 	
-	else if (str == 'd') {
+	else if (job_category == 'd') {
 		basic_salary = 30000;
 		percentage_bonus = 0.20;
 		bonus = basic_salary * percentage_bonus;
@@ -46,7 +46,7 @@ int main()
 		cout << "Your Gross salary is: " << gross_salary;
 	}
 	
-	else if (str == 'e') {
+	else if (job_category == 'e') {
 		basic_salary = 50000;
 		percentage_bonus = 0;
 		bonus = basic_salary * percentage_bonus;
