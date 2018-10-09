@@ -1,0 +1,43 @@
+// activity_age.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//
+
+#include "pch.h"
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int age;
+	char gender;
+	cout << "Enter age:";
+	cin >> age;
+	cout << "Enter gender:";
+	cin >> gender;
+	gender = tolower(gender);
+
+	if (age > 0 && age <= 2)
+	{
+		if (gender == 'f' || gender == 'm') {
+			cout << "Nursery";
+		}
+	}
+
+	else if (age >= 3 && age <= 5)
+	{
+		if (gender == 'f')
+		{
+			cout << "Bouncing Castle";
+		}
+		else if (gender == 'm')
+		{
+			cout << "Computer games";
+		}
+
+	}
+
+	else
+	{
+		cout << "Invalid age";
+	}
+}
+
