@@ -1,0 +1,27 @@
+// good_bad_number.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//
+
+#include "pch.h"
+#include <iostream>
+using namespace std;
+
+int main() {
+	int number;
+	cout << "Enter a number:";
+	cin >> number;
+
+	if (number >= 22 && number <= 32) {
+		cout << "Good";
+	}
+
+	else if (number >= 103) {
+		cout << "Good";
+	}
+
+	else {
+		cout << "bad";
+	}
+
+	system("pause");
+	return 0;
+}
