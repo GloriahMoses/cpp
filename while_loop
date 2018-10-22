@@ -1,0 +1,16 @@
+// Example program
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+  int sum = 0;
+  int count = 20;
+  while(count <= 25){
+      count = count + 1;
+      sum = sum + count;
+  }
+  cout<<sum;
+  
+}
