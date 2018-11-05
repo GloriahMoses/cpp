@@ -1,0 +1,23 @@
+// Example program
+#include <iostream>
+#include <string>
+include namespace std;
+
+int main()
+{
+    int sum, friends;
+    float average;
+    sum = 0
+    cout <<"Enter number of friends you have:";
+    cin >> friends;
+    int age[friends]
+    
+    for(int i = 0; i < friends; i++){
+        cout<<"Enter age for friends:"<<age[i+1];
+        cin>>age[j]
+        sum = sum + age[i];
+    }
+    average = sum/sizeof(age);
+    cout << average;
+  
+}
