@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+int main() 
+{
+    int no_friends;
+    cout <<"Enter no of friends:";
+    cin >> no_friends;
+    
+    int age[no_friends], sum = 0, average;
+    
+    for (int i = 0; i < no_friends; ++i) 
+    {
+        cout<< "Enter age for friend " << i+1  << ":";
+        cin >> age[i];
+        sum += age[i];
+    }
+    average = sum/no_friends;
+    cout << "Average age = " << average ;  
+    
+    return 0;
+}
