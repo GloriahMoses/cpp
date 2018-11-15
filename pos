@@ -1,0 +1,31 @@
+#include <iostream>
+#include <string>
+#include <time.h>
+using namespace std;
+
+int main()
+{
+	string order;
+	string item[4] = {"A. Cosmic Burger", "B. Quantum Burger", "C. Alpha Burger", "D. Beta Burger",};
+	int a = 200, b = 150, c = 100, d = 80;
+	double tax, discount;
+	int total_price = 0;
+
+	time_t rawtime;
+	time(&rawtime);
+	cout << "WELCOME TO GROUP TWO RESTRAUNT: " << ctime(&rawtime) <<"\t\tOUR MENU TODAY" <<endl;
+	
+	cout <<item[0]<<" Price: Ksh"<<a<<"\n"<<endl;
+	cout <<item[1]<<" Price: Ksh"<<b<<"\n"<<endl;
+	cout <<item[2]<<" Price: Ksh"<<c<<"\n"<<endl;
+	cout <<item[3]<<" Price: Ksh"<<d<<"\n"<<endl;
+	
+	cout << "Enter your order, when done enter 'q': ";
+	cin>>order;
+	
+	if (order == "Burger"){
+	   total_price = total_price + a;
+	}
+	cout << "Total_price: "<< total_price;
+
+}
