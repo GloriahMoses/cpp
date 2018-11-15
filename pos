@@ -9,7 +9,7 @@ int main()
 	string item[4] = {"A. Cosmic Burger", "B. Quantum Burger", "C. Alpha Burger", "D. Beta Burger",};
 	int a = 200, b = 150, c = 100, d = 80;
 	double tax, discount;
-	int total_price = 0;
+	int no_items, total_price = 0;
 
 	time_t rawtime;
 	time(&rawtime);
@@ -20,12 +20,18 @@ int main()
 	cout <<item[2]<<" Price: Ksh"<<c<<"\n"<<endl;
 	cout <<item[3]<<" Price: Ksh"<<d<<"\n"<<endl;
 	
-	cout << "Enter your order, when done enter 'q': ";
-	cin>>order;
+	cout << "Please enter the number of items you wish to order:";
+	cin >> no_items;
+	order[no_items];
 	
-	if (order == "Burger"){
-	   total_price = total_price + a;
-	}
-	cout << "Total_price: "<< total_price;
+	for (int i = 0; i < no_items; ++i) 
+    {
+        cout<< "Enter Letter of Food to Order " << i+1  << ":";
+        cin >> order[i];
+        total_price += order[i];
+    }
+    cout << "Total Price = " << total_price ;  
+    
+    return 0;	
 
 }
