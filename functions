@@ -1,0 +1,19 @@
+#include <iostream>
+#include <string>
+using namespace std;
+int a = 4;
+
+void example(){
+    int b = 6;
+    cout<< a <<"\n";
+    cout<<b<<"\n";
+    }
+
+int main()
+{
+  int a = 7;
+  example();
+  cout<<a<<"\n";
+  return 0;
+  system("pause");
+}
