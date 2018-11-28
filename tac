@@ -3,7 +3,7 @@
 
 using namespace std;
 
-int main(){
+void expenses(){
     char cost[4][25];
     cout<<"Enter the Costs:"<<endl;
     
@@ -14,9 +14,22 @@ int main(){
         
     }
     //display costs
-    for (int j=0;j<=5;j++)
+    /*for (int j=0;j<=5;j++)
     {
         cout<<cost[j]<<endl;
-    }
-   
+    } */ 
+}
+
+void income(int myincome, string mystatus){
+  cout << "Are your depedent or independent: ";
+  cin >>mystatus;
+
+  cout <<"Enter your total income: ";
+  cin >> myincome;
+}
+
+int main(){
+  expenses();
+  income();
+  return 0;
 }
