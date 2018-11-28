@@ -30,9 +30,20 @@ void income(){
 
 }
 
+int allocateExpenses(){
+
+}
+
+string advisor(){
+
+}
+
+int average(){
+
+}
+
 int main() {
 	expenses();
   income();
 	return 0;
 }
-
