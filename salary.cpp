@@ -1,59 +1,104 @@
-﻿// salary.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
-#include "pch.h"
 #include <iostream>
+#include <string>
 using namespace std;
 
-int main()
+string expense[5], mystatus;
+int myincome,averageexpenditure, spend[5], totalExpenses = 0;
+double percentage, pweeklyExpenses;
+
+string expenses() 
+{   
+  cout<< "Enter your weekly five expenses below." <<endl; 
+    for (int i = 0; i <= 4; i++)
+    {
+      cout << "Expense " << i + 1 << ": ";
+      cin >> expense[i];
+      }
+
+    return "0";
+}
+
+void income() 
 {
-	float basic_salary, percentage_bonus, bonus, gross_salary;
+    cout << "Enter 'd' for Dependent or 'i' for Independent: ";
+    cin >> mystatus;
 
-	char job_category;
-	cout << "Enter your job group category:";
-	cin >> job_category;
-	job_category = tolower(job_category);
+    if (mystatus != "d" && mystatus != "i") {
+        throw "Unknown status!";
+    }
 
+    cout << "Enter Weekly Income: ";
+    cin >> myincome;
 
-	if (job_category == 'a') {
-		basic_salary = 10000;
-		percentage_bonus = 0.12;
-		bonus = basic_salary * percentage_bonus;
-		gross_salary = basic_salary + bonus;
-		cout << "Your Gross salary is: " << gross_salary;
-	}
-	
-	else if (job_category == 'b') {
-		basic_salary = 15000;
-		percentage_bonus = 0.14;
-		bonus = basic_salary * percentage_bonus;
-		gross_salary = basic_salary + bonus;
-		cout << "Your Gross salary is: " << gross_salary;
-	}
-	
-	else if (job_category == 'c') {
-		basic_salary = 20000;
-		percentage_bonus = 0.16;
-		bonus = basic_salary * percentage_bonus;
-		gross_salary = basic_salary + bonus;
-		cout << "Your Gross salary is: " << gross_salary;
-	}
-	
-	else if (job_category == 'd') {
-		basic_salary = 30000;
-		percentage_bonus = 0.20;
-		bonus = basic_salary * percentage_bonus;
-		gross_salary = basic_salary + bonus;
-		cout << "Your Gross salary is: " << gross_salary;
-	}
-	
-	else if (job_category == 'e') {
-		basic_salary = 50000;
-		percentage_bonus = 0;
-		bonus = basic_salary * percentage_bonus;
-		gross_salary = basic_salary + bonus;
-		cout << "Your Gross salary remains the same for this job category: " << gross_salary;
-	}
-	system("pause");
-	return 0;
+    if (myincome <= 0) {
+        throw "income not enough";
+    }
+}
+
+string allocateExpenses() {
+    
+    cout << "Cost of " + expense[0] + ": ";
+    cin >> spend[0];
+    totalExpenses = totalExpenses + spend[0];
+    percentage = (spend[0] *100)/myincome;
+    cout <<expense[0] <<" - Kshs."<<spend[0] <<"("<<percentage <<"%"<<" of the total income)"<<endl;
+
+    cout << "Cost of " + expense[1] + ": ";
+    cin >> spend[1];
+    totalExpenses = totalExpenses + spend[1];
+    percentage = (spend[1] *100)/myincome;
+    cout <<expense[1] <<" - Kshs."<<spend[1] <<"("<<percentage <<"%"<<" of the total income)"<<endl;
+
+    cout << "Cost of " + expense[2] + ": ";
+    cin >> spend[2];
+    totalExpenses = totalExpenses + spend[2];
+    percentage = (spend[2] *100)/myincome;
+    cout <<expense[2] <<" - Kshs."<<spend[2] <<"("<<percentage <<"%"<<" of the total income)"<<endl;
+
+    cout << "Cost of " + expense[3] + ": ";
+    cin >> spend[3];
+    totalExpenses = totalExpenses + spend[0];
+    percentage = (spend[3] *100)/myincome;
+    cout <<expense[3] <<" - Kshs."<<spend[0] <<"("<<percentage <<"%"<<" of the total income)"<<endl;
+
+    cout << "Cost of " + expense[4] + ": ";
+    cin >> spend[4];
+    totalExpenses = totalExpenses + spend[4];
+    percentage = (spend[4] *100)/myincome;
+    cout <<expense[4] <<" - Kshs."<<spend[0] <<"("<<percentage <<"%"<<" of the total income)"<<endl;
+
+    if (totalExpenses > myincome) {
+        throw "income is less!";
+    }
+    return "0";
+}
+
+void advisor() {
+  cout<<"Total expenses: " <<totalExpenses <<endl;
+  pweeklyExpenses = (totalExpenses * 100)/myincome;
+
+  if (mystatus == "i" && pweeklyExpenses >= 30 ){
+    cout <<"You are spending alot more, kindly reduce expenses";
+  }
+
+  else if (mystatus == "d" && pweeklyExpenses >= 10 ){
+    cout <<"You are spending alot more, kindly reduce expenses"<<endl;
+  }
+
+  cout <<"Weekly expenditure = " <<pweeklyExpenses <<"%" <<endl;
+}
+
+void average() {
+averageexpenditure = totalExpenses/7;
+cout <<"Average Expenditure per week is Kshs. "<< averageexpenditure;
+}
+
+int main()
+{   
+    expenses();
+    income();
+    allocateExpenses();
+    advisor();
+    average();
+    return 0;
 }
