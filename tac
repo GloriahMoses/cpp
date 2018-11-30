@@ -1,4 +1,3 @@
-// #include "pch.h"
 #include <iostream>
 #include <string>
 using namespace std;
@@ -85,7 +84,8 @@ void advisor() {
   else if (mystatus == "d" && pweeklyExpenses >= 10 ){
     cout <<"You are spending alot more, kindly reduce expenses"<<endl;
   }
-  
+
+  cout <<"Weekly expenditure = " <<pweeklyExpenses <<"%" <<endl;
 }
 
 void average() {
