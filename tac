@@ -3,8 +3,8 @@
 #include <string>
 using namespace std;
 
-string expense[5], status;
-int myincome, spend[5], totalExpenses = 0;
+string expense[5], mystatus;
+int myincome,averageexpenditure, spend[5], totalExpenses = 0;
 double percentage, pweeklyExpenses;
 
 string expenses() 
@@ -22,9 +22,9 @@ string expenses()
 void income() 
 {
     cout << "Enter 'd' for Dependent or 'i' for Independent: ";
-    cin >> status;
+    cin >> mystatus;
 
-    if (status != "d" && status != "i") {
+    if (mystatus != "d" && mystatus != "i") {
         throw "Unknown status!";
     }
 
@@ -77,12 +77,20 @@ string allocateExpenses() {
 void advisor() {
   cout<<"Total expenses: " <<totalExpenses <<endl;
   pweeklyExpenses = (totalExpenses * 100)/myincome;
-  
 
+  if (mystatus == "i" && pweeklyExpenses >= 30 ){
+    cout <<"You are spending alot more, kindly reduce expenses";
+  }
+
+  else if (mystatus == "d" && pweeklyExpenses >= 10 ){
+    cout <<"You are spending alot more, kindly reduce expenses"<<endl;
+  }
+  
 }
 
 void average() {
-
+averageexpenditure = totalExpenses/7;
+cout <<"Average Expenditure per week is Kshs. "<< averageexpenditure;
 }
 
 int main()
@@ -92,6 +100,5 @@ int main()
     allocateExpenses();
     advisor();
     average();
-
     return 0;
 }
