@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include <string>
 using namespace std;
@@ -25,10 +26,9 @@ void allocateExpenses() {
 	int expenseamt[4];
 	for (int i = 0; i <= 4; i++)
 	{
-		cout << "Kindly enter amount for your expenses" << i + 1 << ": ";
+		cout << "Kindly enter amount for expense"<< i + 1 << ": ";
 		cin >> expenseamt[i];
-	}
-	
+	}	
 }
 
 void advisor() {
