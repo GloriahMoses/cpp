@@ -1,37 +1,82 @@
-
+// #include "pch.h"
 #include <iostream>
 #include <string>
 using namespace std;
 
-char cost[4][25];
-void expenses() {
-	cout << "Enter the Costs:" << endl;
-	for (int i = 0; i <= 4; i++)
-	{
-		cout << "Expense" << i + 1 << ": ";
-		cin >> cost[i];
-	}
+string expense[5], status;
+int myincome, spend[5], totalExpenses = 0;
+double percentage, pweeklyExpenses;
+
+string expenses() 
+{   
+  cout<< "Enter your weekly five expenses below." <<endl; 
+    for (int i = 0; i <= 4; i++)
+    {
+      cout << "Expense " << i + 1 << ": ";
+      cin >> expense[i];
+      }
+
+    return "0";
 }
 
-void income() {
-	int myincome;
-	string mystatus;
-	cout << "Are your depedent or independent: ";
-	cin >> mystatus;
-	cout << "Enter weekly income: ";
-	cin >> myincome;
+void income() 
+{
+    cout << "Enter 'd' for Dependent or 'i' for Independent: ";
+    cin >> status;
+
+    if (status != "d" && status != "i") {
+        throw "Unknown status!";
+    }
+
+    cout << "Enter Weekly Income: ";
+    cin >> myincome;
+
+    if (myincome <= 0) {
+        throw "income not enough";
+    }
 }
 
-void allocateExpenses() {
-	int expenseamt[4];
-	for (int i = 0; i <= 4; i++)
-	{
-		cout << "Kindly enter amount for expense"<< i + 1 << ": ";
-		cin >> expenseamt[i];
-	}	
+string allocateExpenses() {
+    
+    cout << "Cost of " + expense[0] + ": ";
+    cin >> spend[0];
+    totalExpenses = totalExpenses + spend[0];
+    percentage = (spend[0] *100)/myincome;
+    cout <<expense[0] <<" - Kshs."<<spend[0] <<"("<<percentage <<"%"<<" of the total income)"<<endl;
+
+    cout << "Cost of " + expense[1] + ": ";
+    cin >> spend[1];
+    totalExpenses = totalExpenses + spend[1];
+    percentage = (spend[1] *100)/myincome;
+    cout <<expense[1] <<" - Kshs."<<spend[1] <<"("<<percentage <<"%"<<" of the total income)"<<endl;
+
+    cout << "Cost of " + expense[2] + ": ";
+    cin >> spend[2];
+    totalExpenses = totalExpenses + spend[2];
+    percentage = (spend[2] *100)/myincome;
+    cout <<expense[2] <<" - Kshs."<<spend[2] <<"("<<percentage <<"%"<<" of the total income)"<<endl;
+
+    cout << "Cost of " + expense[3] + ": ";
+    cin >> spend[3];
+    totalExpenses = totalExpenses + spend[0];
+    percentage = (spend[3] *100)/myincome;
+    cout <<expense[3] <<" - Kshs."<<spend[0] <<"("<<percentage <<"%"<<" of the total income)"<<endl;
+
+    cout << "Cost of " + expense[4] + ": ";
+    cin >> spend[4];
+    totalExpenses = totalExpenses + spend[4];
+    percentage = (spend[4] *100)/myincome;
+    cout <<expense[4] <<" - Kshs."<<spend[0] <<"("<<percentage <<"%"<<" of the total income)"<<endl;
+
+    if (totalExpenses > myincome) {
+        throw "income is less!";
+    }
+    return "0";
 }
 
 void advisor() {
+  cout<<"Total expenses: " <<totalExpenses <<endl;
+  pweeklyExpenses = totalExpenses
 
 }
 
@@ -39,18 +84,13 @@ void average() {
 
 }
 
-int main() {
-	expenses();
-	income();
-	allocateExpenses();
-	return 0;
-}
+int main()
+{   
+    expenses();
+    income();
+    allocateExpenses();
+    advisor();
+    average();
 
-/*for (int j = 0; j <= 4; j++)
-	{
-		//display costs
-		for (int j = 0; j <= 5; j++)
-		{
-			cout << cost[j] << endl;
-		}
-	}*/
+    return 0;
+}
