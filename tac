@@ -76,7 +76,8 @@ string allocateExpenses() {
 
 void advisor() {
   cout<<"Total expenses: " <<totalExpenses <<endl;
-  pweeklyExpenses = totalExpenses
+  pweeklyExpenses = (totalExpenses * 100)/myincome;
+  
 
 }
 
