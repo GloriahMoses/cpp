@@ -1,0 +1,44 @@
+#include <iostream>
+#include <string>
+#include <time.h>
+using namespace std;
+
+int total_price = 0;
+string menu[4] = {"A. Cosmic Burger", "B. Quantum Burger", "C. Alpha Burger", "D. Beta Burger",};
+int a = 200, b = 150, c = 100, d = 80;
+
+int meenu()
+{
+	time_t rawtime;
+	time(&rawtime);
+	cout<<"\t\t\t*********************************"<<endl;
+    cout<<"\t\t\t  WELCOME TO GROUP TWO RESTRAUNT" <<endl;
+    cout<<"\t\t\t*********************************"<<endl;
+	cout << "\t\t\t OUR MENU: "<<ctime(&rawtime) <<endl;
+	
+	cout <<menu[0]<<" Price: Ksh"<<a<<"\n"<<endl;
+	cout <<menu[1]<<" Price: Ksh"<<b<<"\n"<<endl;
+	cout <<menu[2]<<" Price: Ksh"<<c<<"\n"<<endl;
+	cout <<menu[3]<<" Price: Ksh"<<d<<"\n"<<endl;
+    
+    return 0;	
+}
+
+string order() 
+{ 
+  int items;
+  cout<< "How many items would you like to order:";
+  cin >> items;
+  int person[items];
+  for (int i = 0; i <= items; i++){
+      cout << "Order " << i + 1 << ": ";
+      cin >> person[i];
+     }
+
+    return "0";
+}
+
+int main(){
+    meenu();
+    order();
+    }
