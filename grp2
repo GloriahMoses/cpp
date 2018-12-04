@@ -3,42 +3,55 @@
 #include <time.h>
 using namespace std;
 
+char type;
 int total_price = 0;
-string menu[4] = {"A. Cosmic Burger", "B. Quantum Burger", "C. Alpha Burger", "D. Beta Burger",};
+string menu[4] = {"A. French Fries", "B. Beef Choma", "C. Liver Fryr", "D. Chicken Tikka",};
 int a = 200, b = 150, c = 100, d = 80;
 
+void customer_type(){
+    cout<<"For Regular enter 'r', For VIP enter 'v':";
+    cin>> type;
+}
+
 int meenu()
-{
-	time_t rawtime;
-	time(&rawtime);
-	cout<<"\t\t\t*********************************"<<endl;
-    cout<<"\t\t\t  WELCOME TO GROUP TWO RESTRAUNT" <<endl;
-    cout<<"\t\t\t*********************************"<<endl;
-	cout << "\t\t\t OUR MENU: "<<ctime(&rawtime) <<endl;
+{	
+	cout <<" ITEM\t\t PRICE\n"<<endl;
 	
-	cout <<menu[0]<<" Price: Ksh"<<a<<"\n"<<endl;
-	cout <<menu[1]<<" Price: Ksh"<<b<<"\n"<<endl;
-	cout <<menu[2]<<" Price: Ksh"<<c<<"\n"<<endl;
-	cout <<menu[3]<<" Price: Ksh"<<d<<"\n"<<endl;
+	cout <<menu[0]<<" Ksh"<<a<<"\n"<<endl;
+	cout <<menu[1]<<" Ksh"<<b<<"\n"<<endl;
+	cout <<menu[2]<<" Ksh"<<c<<"\n"<<endl;
+	cout <<menu[3]<<" Ksh"<<d<<"\n"<<endl;
     
     return 0;	
 }
 
 string order() 
-{ 
-  int items;
-  cout<< "How many items would you like to order:";
-  cin >> items;
-  int person[items];
-  for (int i = 0; i <= items; i++){
-      cout << "Order " << i + 1 << ": ";
-      cin >> person[i];
-     }
-
-    return "0";
+{
+   int no_items;
+   cout<<"How many items would you like to order:";
+   cin>>no_items;
+   int *order = new int[no_items];
+   
+   for (int i = 0; i < no_items; i++){
+       char item;
+       cout<<"Order Item " <<i+1 <<" :";
+       cin>>item;
+       order[i] = item;
+       }
+       
+   return "0";
 }
 
 int main(){
+    time_t rawtime;
+	time(&rawtime);
+	cout<<"\t\t\t********************************"<<endl;
+    cout<<"\t\t\t WELCOME TO GROUP TWO RESTRAUNT" <<endl;
+    cout<<"\t\t\t********************************"<<endl;
+	cout << "\t\t\t "<<ctime(&rawtime) <<endl;
+	
+	customer_type();
+	
     meenu();
     order();
     }
