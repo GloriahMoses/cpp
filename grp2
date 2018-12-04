@@ -6,21 +6,29 @@ using namespace std;
 char type;
 int total_price = 0;
 string menu[4] = {"A. French Fries", "B. Beef Choma", "C. Liver Fryr", "D. Chicken Tikka",};
-int a = 200, b = 150, c = 100, d = 80;
-
-void customer_type(){
-    cout<<"For Regular enter 'r', For VIP enter 'v':";
-    cin>> type;
-}
+int prices[4] = {200, 150, 100, 80};
+int vip_prices[4] = {400, 650, 300, 120};
 
 int meenu()
-{	
-	cout <<" ITEM\t\t PRICE\n"<<endl;
-	
-	cout <<menu[0]<<" Ksh"<<a<<"\n"<<endl;
-	cout <<menu[1]<<" Ksh"<<b<<"\n"<<endl;
-	cout <<menu[2]<<" Ksh"<<c<<"\n"<<endl;
-	cout <<menu[3]<<" Ksh"<<d<<"\n"<<endl;
+{
+    cout<<"For Regular enter 'r', For VIP enter 'v':";
+    cin>> type;
+    
+    if (type == 'r'){
+        cout <<" ITEM\t\t PRICE\n"<<endl;
+        cout <<menu[0]<<" Ksh"<<prices[0]<<"\n"<<endl;
+        cout <<menu[1]<<" Ksh"<<prices[1]<<"\n"<<endl;
+	    cout <<menu[2]<<" Ksh"<<prices[2]<<"\n"<<endl;
+	    cout <<menu[3]<<" Ksh"<<prices[3]<<"\n"<<endl;
+    }
+    
+    else if (type == 'v'){
+        cout <<" ITEM\t\t PRICE\n"<<endl;
+        cout <<menu[0]<<" Ksh"<<vip_prices[0]<<"\n"<<endl;
+        cout <<menu[1]<<" Ksh"<<vip_prices[1]<<"\n"<<endl;
+	    cout <<menu[2]<<" Ksh"<<vip_prices[2]<<"\n"<<endl;
+	    cout <<menu[3]<<" Ksh"<<vip_prices[3]<<"\n"<<endl;
+    }
     
     return 0;	
 }
@@ -28,7 +36,7 @@ int meenu()
 string order() 
 {
    int no_items;
-   cout<<"How many items would you like to order:";
+   cout<<"How many items would you like to order: ";
    cin>>no_items;
    int *order = new int[no_items];
    
@@ -37,7 +45,12 @@ string order()
        cout<<"Order Item " <<i+1 <<" :";
        cin>>item;
        order[i] = item;
-       }
+    }
+    cout <<"\nYour Order is as follows:"<<endl;
+    cout <<"=========================";
+    
+       
+    
        
    return "0";
 }
@@ -49,8 +62,6 @@ int main(){
     cout<<"\t\t\t WELCOME TO GROUP TWO RESTRAUNT" <<endl;
     cout<<"\t\t\t********************************"<<endl;
 	cout << "\t\t\t "<<ctime(&rawtime) <<endl;
-	
-	customer_type();
 	
     meenu();
     order();
