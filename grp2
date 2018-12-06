@@ -13,6 +13,7 @@ int meenu()
 {
     cout<<"For Regular enter 'r', For VIP enter 'v':";
     cin>> type;
+    type = tolower(type);
     
     if (type == 'r'){
         cout <<" ITEM\t\t PRICE\n"<<endl;
@@ -29,6 +30,7 @@ int meenu()
        char item;
        cout<<"Order Item " <<i+1 <<" :";
        cin>>item;
+       item = tolower(item);
        order[i] = item;
 
        if (item == 'a'){
@@ -59,7 +61,7 @@ int meenu()
 	      cout <<menu[3]<<" Ksh "<<vip_prices[3]<<"\n"<<endl;
 
 
-        int no_items;
+    int no_items;
    cout<<"How many items would you like to order: ";
    cin>>no_items;
    int *order = new int[no_items];  
@@ -85,17 +87,21 @@ int meenu()
          total_price = total_price + vip_prices[3];
          name = menu[3];
        }
+
+       for (int i = no_items - 1; i >= 0; i--){
+         cout << order[i];}
     }
     }
+    cout <<"\nYour Order is as follows:"<<endl;
+    cout <<"========================="<<endl;
+
+    cout <<"Total_price: "<<total_price <<endl;
     
     return 0;	
 }
 
 string order() 
 {
-    cout <<"\nYour Order is as follows:"<<endl;
-    cout <<"========================="<<endl;
-    cout <<total_price <<endl;
        
    return "0";
 }
