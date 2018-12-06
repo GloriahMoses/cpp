@@ -11,6 +11,7 @@ int vip_prices[4] = {400, 650, 300, 120};
 
 int meenu()
 {
+    int no_items, order[no_items];
     cout<<"For Regular enter 'r', For VIP enter 'v':";
     cin>> type;
     type = tolower(type);
@@ -20,9 +21,8 @@ int meenu()
         cout <<menu[0]<<" Ksh"<<prices[0]<<"\n"<<endl;
         cout <<menu[1]<<" Ksh"<<prices[1]<<"\n"<<endl;
         cout <<menu[2]<<" Ksh"<<prices[2]<<"\n"<<endl;
-	    cout <<menu[3]<<" Ksh"<<prices[3]<<"\n"<<endl;
+        cout <<menu[3]<<" Ksh"<<prices[3]<<"\n"<<endl;
 	    
-	    int no_items;
         cout<<"How many items would you like to order: ";
         cin>>no_items;
         int *order = new int[no_items];  
@@ -51,8 +51,7 @@ int meenu()
                 
         }
         
-    }
-    
+    }  
             else if (type == 'v'){
                 cout <<" ITEM\t\t PRICE\n"<<endl;
                 cout <<menu[0]<<" Ksh "<<vip_prices[0]<<"\n"<<endl;
@@ -72,41 +71,40 @@ int meenu()
 
                    if (item == 'a'){
                      total_price = total_price + vip_prices[0];
-                     name = menu[0];
-                     cout << name;}
+                     name = menu[0];}
                      
                    else if (item == 'b'){
                      total_price = total_price + vip_prices[1];
-                     name = menu[1];
-                     cout << name;}
+                     name = menu[1];}
                      
                    else if (item == 'c'){
                      total_price = total_price + vip_prices[2];
-                     name = menu[2];
-                     cout << name;}
+                     name = menu[2];}
                      
                    else if (item == 'd'){
                      total_price = total_price + vip_prices[3];
-                     name = menu[3];
-                     cout << name;}
+                     name = menu[3];}
                     
                 }
                 
             }
+
             cout <<"\nYour Order is as follows:"<<endl;
-            cout <<"========================="<<endl;
-            cout <<"Total_price: "<<total_price <<endl;
-    
+               cout <<"========================="<<endl;
+               cout <<"Total_price: "<<total_price <<endl;
+               
+               for (int i = no_items; i < no_items; i++){
+                   cout << order[i];}  
     return 0;	
 }
 
 int main(){
     time_t rawtime;
-	time(&rawtime);
-	cout<<"\t\t\t********************************"<<endl;
+    time(&rawtime);
+    cout<<"\t\t\t********************************"<<endl;
     cout<<"\t\t\t WELCOME TO GROUP TWO RESTRAUNT" <<endl;
     cout<<"\t\t\t********************************"<<endl;
-	cout << "\t\t\t "<<ctime(&rawtime) <<endl;
+    cout << "\t\t\t "<<ctime(&rawtime) <<endl;
 	
     meenu();
     }
