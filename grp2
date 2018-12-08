@@ -71,16 +71,19 @@ int meenu()
 
                    if (item == 'a'){
                      total_price = total_price + vip_prices[0];
-                    }
+                    cout <<menu[0]<<" - "<<vip_prices[0]<<endl;}
                      
                    else if (item == 'b'){
-                     total_price = total_price + vip_prices[1];}
+                     total_price = total_price + vip_prices[1];
+                     cout <<menu[1]<<" - "<<vip_prices[1]<<endl;}
                      
                    else if (item == 'c'){
-                     total_price = total_price + vip_prices[2];}
+                     total_price = total_price + vip_prices[2];
+                     cout <<menu[2]<<" - "<<vip_prices[2]<<endl;}
                      
                    else if (item == 'd'){
-                     total_price = total_price + vip_prices[3];} 
+                     total_price = total_price + vip_prices[3];
+                     cout <<menu[3]<<" - "<<vip_prices[3]<<endl;} 
                      }
                                      
                 }    
