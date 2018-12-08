@@ -35,16 +35,20 @@ int meenu()
             order[i] = item;
             
             if (item == 'a'){
-                total_price = total_price + prices[0];}
+                total_price = total_price + prices[0];
+                cout <<menu[0]<<" - "<<prices[0]<<endl;}
                 
             else if (item == 'b'){
-                total_price = total_price + prices[1];}
+                total_price = total_price + prices[1];
+                cout <<menu[1]<<" - "<<prices[1]<<endl;}
                 
             else if (item == 'c'){
-                total_price = total_price + prices[2];}
+                total_price = total_price + prices[2];
+                cout <<menu[2]<<" - "<<prices[2]<<endl;}
                 
             else if (item == 'd'){
-                total_price = total_price + prices[3];}        
+                total_price = total_price + prices[3];
+                cout <<menu[3]<<" - "<<prices[3]<<endl;}        
         }
 
     }  
@@ -66,7 +70,8 @@ int meenu()
                     order[i] = item;
 
                    if (item == 'a'){
-                     total_price = total_price + vip_prices[0];}
+                     total_price = total_price + vip_prices[0];
+                    }
                      
                    else if (item == 'b'){
                      total_price = total_price + vip_prices[1];}
@@ -75,22 +80,23 @@ int meenu()
                      total_price = total_price + vip_prices[2];}
                      
                    else if (item == 'd'){
-                     total_price = total_price + vip_prices[3];}                  
-                }
-                
-            cout <<"Sub Total: "<<total_price <<endl;
+                     total_price = total_price + vip_prices[3];} 
+                     }
+                                     
+                }    
+              
+         cout <<"Sub Total: "<<total_price <<endl;
 
             double discount = 0.05;
             discount = total_price*discount;
             total_price = total_price - discount; 
 
             cout<<"You have been offered a discount of Kshs: "<<discount;
-    
-            }
 
             cout <<"\nYour Order is as follows:"<<endl;
             cout <<"========================="<<endl;
-            cout <<"Net Price : "<<total_price <<endl;
+            cout <<"Net Price : "<<total_price <<endl;   
+
     return 0;	
 }
 
@@ -120,4 +126,3 @@ int main(){
     cashier();
   }
 
-  
