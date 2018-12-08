@@ -16,16 +16,30 @@ int meenu()
     cout<<"For Regular enter 'r', For VIP enter 'v':";
     cin>> type;
     type = tolower(type);
-    
-    if (type == 'r'){
+    cout<<"\t\t Menu" <<endl;
+    if (type != 'r' || type != 'v'){
+      throw "Not a valid category";
+    }
+    else if (type == 'r'){
         cout <<" ITEM\t\t PRICE\n"<<endl;
         cout <<menu[0]<<" Ksh"<<prices[0]<<"\n"<<endl;
         cout <<menu[1]<<" Ksh"<<prices[1]<<"\n"<<endl;
         cout <<menu[2]<<" Ksh"<<prices[2]<<"\n"<<endl;
         cout <<menu[3]<<" Ksh"<<prices[3]<<"\n"<<endl;
+
 	    
-        cout<<"How many items would you like to order: ";
+    time_t rawtime;
+    time(&rawtime);
+    cout<<"\t\t\t********************************"<<endl;
+    cout<<"\t\t\t WELCOME TO GROUP TWO RESTRAUNT" <<endl;
+    cout<<"\t\t\t********************************"<<endl;
+    cout << "\t\t\t "<<ctime(&rawtime) <<endl;
+    
+    cout<<"How many items would you like to order: ";
         cin>>no_items;
+         cout <<"\nYour Order is as follows:"<<endl;
+        cout <<"========================="<<endl;
+        
         int *order = new int[no_items];  
         for (int i = 0; i < no_items; i++){
             char item;
@@ -59,9 +73,19 @@ int meenu()
               cout <<menu[2]<<" Ksh "<<vip_prices[2]<<"\n"<<endl;
 	            cout <<menu[3]<<" Ksh "<<vip_prices[3]<<"\n"<<endl;
 	            
+               time_t rawtime;
+    time(&rawtime);
+    cout<<"\t\t\t********************************"<<endl;
+    cout<<"\t\t\t WELCOME TO GROUP TWO RESTRAUNT" <<endl;
+    cout<<"\t\t\t********************************"<<endl;
+    cout << "\t\t\t "<<ctime(&rawtime) <<endl;
+
+        
 	              int no_items;
                 cout<<"How many items would you like to order: ";
                 cin>>no_items;
+                cout <<"\nYour Order is as follows:"<<endl;
+                cout <<"========================="<<endl;
                 int order[no_items];  
                 for (int i = 0; i < no_items; i++){
                     char item;
@@ -85,26 +109,36 @@ int meenu()
                      total_price = total_price + vip_prices[3];
                      cout <<menu[3]<<" - "<<vip_prices[3]<<endl;} 
                      }
+
+                     double discount = 0.05;
+            discount = total_price*discount;
+            total_price = total_price - discount; 
+            
+
+            cout<<"You have been offered a discount of Kshs: "<<discount<<endl;
                                      
                 }    
               
          cout <<"Sub Total: "<<total_price <<endl;
-
-            double discount = 0.05;
-            discount = total_price*discount;
-            total_price = total_price - discount; 
-
-            cout<<"You have been offered a discount of Kshs: "<<discount;
-
-            cout <<"\nYour Order is as follows:"<<endl;
-            cout <<"========================="<<endl;
-            cout <<"Net Price : "<<total_price <<endl;   
+            cout <<"Net Price : "<<total_price <<endl;
+            
+            int cash;
+            cout<< "Cash received: ";
+            cin>>cash;
+            if(cash <total_price){
+              throw "Impossible";
+            }
+            else{
+              int balance = cash - total_price;
+              cout <<"Balance: " <<balance <<endl;
+            }
+            
 
     return 0;	
 }
 
 void tax(){
-  double vat = 1.16 * total_price;
+  double vat = 0.16 * total_price;
   cout<<"VAT:"<<vat<<endl;
 }
 
@@ -114,13 +148,7 @@ string cashier(){
 }
 
 int main(){
-    time_t rawtime;
-    time(&rawtime);
-    cout<<"\t\t\t********************************"<<endl;
-    cout<<"\t\t\t WELCOME TO GROUP TWO RESTRAUNT" <<endl;
-    cout<<"\t\t\t********************************"<<endl;
-    cout << "\t\t\t "<<ctime(&rawtime) <<endl;
-
+    
     cout<<"Served by: ";
     cin>> cashier_name;
 	
