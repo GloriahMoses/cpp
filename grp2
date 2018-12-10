@@ -21,6 +21,7 @@ int meenu()
     /*if (type != 'r' || type != 'v'){
       throw "Not a valid category";
     }*/
+
     if (type == 'r'){
         cout <<" ITEM\t\t PRICE\n"<<endl;
         cout <<menu[0]<<" Ksh"<<prices[0]<<"\n"<<endl;
@@ -187,7 +188,7 @@ int add_items(){
 }
 
 void recept(){
-            cout <<"/nNet Price : "<<total_price <<endl;
+            cout <<"\nNet Price : "<<total_price <<endl;
             
             int cash;
             cout<< "Cash received: ";
