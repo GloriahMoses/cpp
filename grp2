@@ -131,9 +131,18 @@ int delitems(){
     cin>> choice;
     choice = tolower(choice);
     if(choice == 'y'){
+
+      cout <<"How many items would you like to delete:";
+      int del_items[no_items];
+      cin>>no_items;
+      for (int i = 0; i < no_items; i++){
+        del_items[i] = del;
+
+
       cout<<"Enter item to delete; ";
       cin >>del;
       del = tolower(del);
+      
       if (del != order[i]){
         cout <<"Item not orderd"<<endl;
       }
@@ -150,6 +159,7 @@ int delitems(){
         else if(del == 'd'){
           cout<<"You removed "<<menu[3]<<endl;
           total_price = total_price - prices[3];}
+      }
       }
     }    
     return 0;
