@@ -3,24 +3,25 @@
 #include <time.h>
 using namespace std;
 
-char type;
+char type, del, choice;
 string cashier_name;
-int total_price = 0;
+int i, total_price = 0;
+int no_items;
 string name, menu[4] = {"A. French Fries", "B. Beef Choma", "C. Liver Fryr", "D. Chicken Tikka",};
 int prices[4] = {200, 150, 100, 80};
 int vip_prices[4] = {400, 650, 300, 120};
+int *order = new int[no_items]; 
 
 int meenu()
 {
-    int no_items, order[no_items];
     cout<<"For Regular enter 'r', For VIP enter 'v':";
     cin>> type;
     type = tolower(type);
     cout<<"\t\t Menu" <<endl;
-    if (type != 'r' || type != 'v'){
+    /*if (type != 'r' || type != 'v'){
       throw "Not a valid category";
-    }
-    else if (type == 'r'){
+    }*/
+    if (type == 'r'){
         cout <<" ITEM\t\t PRICE\n"<<endl;
         cout <<menu[0]<<" Ksh"<<prices[0]<<"\n"<<endl;
         cout <<menu[1]<<" Ksh"<<prices[1]<<"\n"<<endl;
@@ -40,7 +41,7 @@ int meenu()
          cout <<"\nYour Order is as follows:"<<endl;
         cout <<"========================="<<endl;
         
-        int *order = new int[no_items];  
+         
         for (int i = 0; i < no_items; i++){
             char item;
             cout<<"Order Item " <<i+1 <<" :";
@@ -62,7 +63,7 @@ int meenu()
                 
             else if (item == 'd'){
                 total_price = total_price + prices[3];
-                cout <<menu[3]<<" - "<<prices[3]<<endl;}        
+                cout <<menu[3]<<" - "<<prices[3]<<endl;}       
         }
 
     }  
@@ -73,12 +74,12 @@ int meenu()
               cout <<menu[2]<<" Ksh "<<vip_prices[2]<<"\n"<<endl;
 	            cout <<menu[3]<<" Ksh "<<vip_prices[3]<<"\n"<<endl;
 	            
-               time_t rawtime;
-    time(&rawtime);
-    cout<<"\t\t\t********************************"<<endl;
-    cout<<"\t\t\t WELCOME TO GROUP TWO RESTRAUNT" <<endl;
-    cout<<"\t\t\t********************************"<<endl;
-    cout << "\t\t\t "<<ctime(&rawtime) <<endl;
+              time_t rawtime;
+              time(&rawtime);
+              cout<<"\t\t\t********************************"<<endl;
+              cout<<"\t\t\t WELCOME TO GROUP TWO RESTRAUNT" <<endl;
+              cout<<"\t\t\t********************************"<<endl;
+              cout << "\t\t\t "<<ctime(&rawtime) <<endl;
 
         
 	              int no_items;
@@ -111,15 +112,45 @@ int meenu()
                      }
 
                      double discount = 0.05;
-            discount = total_price*discount;
-            total_price = total_price - discount; 
+                    discount = total_price*discount;
+                    total_price = total_price - discount; 
+                    
+
+                    cout<<"You have been offered a discount of Kshs: "<<discount<<endl;
+                                     
+                }   
             
 
-            cout<<"You have been offered a discount of Kshs: "<<discount<<endl;
-                                     
-                }    
-              
-         cout <<"Sub Total: "<<total_price <<endl;
+    return 0;	
+}
+int delitems(){
+    cout<<"Would you like to delete an item:";
+    cin>> choice;
+    if(choice == 'y'){
+      cout<<"Enter item to delete; ";
+      cin >>del;
+      if (del != order[i]){
+        cout <<"item not orderd";
+      }
+      else{
+        if(del == 'a'){
+        cout<<"You removed "<<menu[0]<<endl;
+        total_price = total_price - prices[0];}
+        else if(del == 'b'){
+          cout<<"You removed "<<menu[1]<<endl;
+          total_price = total_price - prices[1];}
+        else if(del == 'c'){
+          cout<<"You removed "<<menu[2]<<endl;
+          total_price = total_price - prices[2];}
+        else if(del == 'd'){
+          cout<<"You removed "<<menu[3]<<endl;
+          total_price = total_price - prices[3];}
+      }
+    }    
+    return 0;
+}
+void recept(){
+  cout <<"Sub Total: "<<total_price <<endl;
             cout <<"Net Price : "<<total_price <<endl;
             
             int cash;
@@ -132,9 +163,7 @@ int meenu()
               int balance = cash - total_price;
               cout <<"Balance: " <<balance <<endl;
             }
-            
 
-    return 0;	
 }
 
 void tax(){
@@ -143,17 +172,18 @@ void tax(){
 }
 
 string cashier(){
-  cout<<"You were served by: "<<cashier_name;
+  cout<<"You were served by: "<<cashier_name<<endl;
   return "0";
 }
 
 int main(){
     
-    cout<<"Served by: ";
+    cout<<"Cashier Name: ";
     cin>> cashier_name;
 	
     meenu();
-    tax();
+    delitems();
     cashier();
+    recept();
+    tax();
   }
-
