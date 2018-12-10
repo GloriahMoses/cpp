@@ -126,7 +126,7 @@ int meenu()
 }
 int delitems(){
   cout <<"Sub Total: "<<total_price <<endl;
-    cout<<"\nWould you like to delete an item:";
+    cout<<"\nWould you like to delete an item (y/n):";
     cin>> choice;
     choice = tolower(choice);
     if(choice == 'y'){
@@ -156,10 +156,16 @@ int delitems(){
 
 int add_items(){
   cout <<"Sub Total: "<<total_price <<endl;
-    cout<<"\nWould you like to add an item:";
+    cout<<"\nWould you like to add an item(y/n):";
     cin>> choice;
     choice = tolower(choice);
     if(choice == 'y'){
+      cout <<"How many items would you like to add:";
+      int added_items[no_items];
+      cin>>no_items;
+      for (int i = 0; i < no_items; i++){
+        added_items[i] = del;
+
       cout<<"Enter item to add; ";
       cin >>del;
       del = tolower(del);
@@ -175,12 +181,13 @@ int add_items(){
       else if(del == 'd'){
         cout<<"You added "<<menu[3]<<" - "<<prices[3]<<endl;
         total_price = total_price + prices[3];}
+      }
     }    
     return 0;
 }
 
 void recept(){
-            cout <<"Net Price : "<<total_price <<endl;
+            cout <<"/nNet Price : "<<total_price <<endl;
             
             int cash;
             cout<< "Cash received: ";
